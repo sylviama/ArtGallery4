@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 480px;
+}
+
+.card-size{
+    width: 280px;
+    height:180px;
+}
+
+.container{
+    height:100%;
+}
+
+.btn-default{
+    padding-left:1.5em;
+    padding-right:1.5em;
+}
+
+.cartImage{
+    margin-left:2px;
+}
+
+.stayOnRight{
+    float:right;
+    padding: 2em;
+}
+
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+    font-size:1.5em;
+}
+
+h4{
+    font-family: 'Satisfy', cursive;
+    margin:auto;
+    margin-top:2px;
+    text-align:center;
+}
+
+
+
