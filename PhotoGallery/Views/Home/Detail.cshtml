@@ -3,8 +3,16 @@
     ViewBag.Title = "Detail";
 }
 <br />
-<a class="btn btn-large" href="/Home/Index/">Back</a>
+<a class="btn" href="/Home/Index/">Back</a>
 <br />
+<div class="stayOnRight">
+    @using (Html.BeginForm("AddToCart", "Purchase"))
+    {
+        <button type="submit" name="inputArtId" value="@ViewBag.detail.ArtId" onclick="Materialize.toast('Added To Cart',4000)" class="btn btn-large green lighten-1">Add To Cart</button>
+    }
+</div>
+
+
 <h3>@ViewBag.detail.ArtName</h3>
 <p>Type: @ViewBag.detail.ArtType</p>
 <p>Format: @ViewBag.detail.FormatType</p>

@@ -224,6 +224,14 @@
     <Compile Include="Migrations\201612061939426_v1.Designer.cs">
       <DependentUpon>201612061939426_v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612142043257_v11.cs" />
+    <Compile Include="Migrations\201612142043257_v11.Designer.cs">
+      <DependentUpon>201612142043257_v11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612142113596_v2.cs" />
+    <Compile Include="Migrations\201612142113596_v2.Designer.cs">
+      <DependentUpon>201612142113596_v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -345,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612061939426_v1.resx">
       <DependentUpon>201612061939426_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612142043257_v11.resx">
+      <DependentUpon>201612142043257_v11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612142113596_v2.resx">
+      <DependentUpon>201612142113596_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

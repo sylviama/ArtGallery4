@@ -17,7 +17,7 @@
                             <img class="activator" src='@art.Link'>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">@art.ArtName @art.CurrentPrice<i class="material-icons right">X</i></span>
+                            <span class="card-title grey-text text-darken-4">@art.ArtName  $@art.CurrentPrice<i class="material-icons right">X</i></span>
                         </div>
                     </div>
                     
@@ -26,7 +26,7 @@
                     @using (Html.BeginForm("AddToCart", "Purchase"))
                     {
                      <a class="btn btn-default" href="/Home/Detail/@art.ArtId/">Detail</a>
-                     <button class="btn btn-default" type="submit" name="InputArtId" value="@art.ArtId" onclick="Materialize.toast('Added To Cart',4000)">Add To Cart</button>
+                     <button class="btn btn-default green lighten-1" type="submit" name="InputArtId" value="@art.ArtId" onclick="Materialize.toast('Added To Cart',4000)">Add To Cart</button>
                     }
                 </div>
             }

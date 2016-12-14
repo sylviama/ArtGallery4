@@ -10,8 +10,10 @@ using PhotoGallery.DAL;
 using PhotoGallery.Models;
 using Microsoft.AspNet.Identity;
 
+
 namespace PhotoGallery.Controllers
 {
+    [Authorize]
     public class ManageArtsController : Controller
     {
         private ArtContext db = new ArtContext();
@@ -64,7 +66,7 @@ namespace PhotoGallery.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArtId,ArtName,Link,ArtType,FormatType,Size,Dimension,CurrentPrice, Artist.ArtistFirstName")] Art art)
+        public ActionResult Create([Bind(Include = "ArtId,ArtName,Link,ArtType,FormatType,Size,Dimension,CurrentPrice,Fake")] Art art)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +91,20 @@ namespace PhotoGallery.Controllers
             {
                 return HttpNotFound();
             }
+            //for the dropdownlist of Artist
+            ArtRepository repo = new ArtRepository();
+            var ArtistList = repo.GetAllArtist();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            foreach (var artist in ArtistList)
+            {
+                listItems.Add(new SelectListItem
+                {
+                    Text = artist.ArtistFirstName + " " + artist.ArtistLastName,
+                    Value = artist.ArtistFirstName
+                });
+            };
+
+            ViewBag.list = listItems;
             return View(art);
         }
 
@@ -97,12 +113,15 @@ namespace PhotoGallery.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArtId,ArtName,Link,ArtType,FormatType,Size,Dimension,CurrentPrice")] Art art)
+        public ActionResult Edit([Bind(Include = "ArtId,ArtName,Link,ArtType,FormatType,Size,Dimension,CurrentPrice,Fake")] Art art)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(art).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(art).State = EntityState.Modified;
+                //db.SaveChanges();
+
+                ArtRepository repo = new ArtRepository();
+                repo.UpdateArt(art);
                 return RedirectToAction("Index");
             }
             return View(art);

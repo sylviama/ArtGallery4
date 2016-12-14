@@ -87,6 +87,9 @@ namespace PhotoGallery.DAL
         {
             ApplicationUser currentUser = Context.Users.FirstOrDefault(d => d.Id == InputUserId);
             art.uploadedUser = currentUser;
+            //this part is a cheat, I cannot pass value from Art.Artist.ArtistId, so I use a Art.Fake to pass the value
+            Artist artist1 = Context.Artists.FirstOrDefault(a => a.ArtistFirstName == art.Fake);
+            art.Artist = artist1;
             Context.Arts.Add(art);
             Context.SaveChanges();
         }
@@ -202,6 +205,16 @@ namespace PhotoGallery.DAL
             Context.BuyerArtTable.AddOrUpdate(findInCartToPurchasedArt);
             Context.SaveChanges();
             
+        }
+
+        //Update Art Info
+        public void UpdateArt(Art art)
+        {
+            Artist artist1 = Context.Artists.FirstOrDefault(a => a.ArtistFirstName == art.Fake);
+            art.Artist = artist1;
+
+            Context.Arts.AddOrUpdate(art);
+            Context.SaveChanges();
         }
 
 

@@ -24,5 +24,6 @@ namespace PhotoGallery.Models
         public virtual ApplicationUser uploadedUser { get; set; }
 
         public virtual List<Buyer> buyerList { get; set; }
+        public string Fake { get; set; }
     }
 }
