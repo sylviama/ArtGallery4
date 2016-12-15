@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+@using Microsoft.AspNet.Identity
+
+
+
+<div>
+
+    <h4 class="subtitle center-align regular-2 grey-text">Photo Gallery</h4>
+
+    @using (Html.BeginForm("Search", "Home"))
+            {
+        <div>
+            <h6>
+                <b>Search</b>: @Html.TextBox("searchString")
+                <button class="btn btn-default blue lighten-1" type="submit" value="searchString">SEARCH</button>
+            </h6>
+        </div>
+    }
+
+    @foreach (var art in ViewBag.AllArts)
+            {
+        <div class="col-sm-6 col-lg-4 col-md-4">
+            <div class="card card-size z-depth-3 hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src='@art.Link'>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">@art.ArtName  $@art.CurrentPrice<i class="material-icons right">X</i></span>
+                </div>
+            </div>
+
+
+
+            @using (Html.BeginForm("AddToCart", "Purchase"))
+            {
+                <a class="btn btn-default" href="/Home/Detail/@art.ArtId/">Detail</a>
+                    <button class="btn btn-default" type="submit" name="InputArtId" value="@art.ArtId" onclick="Materialize.toast('Added To Cart',4000)">Add To Cart</button>
+            }
+        </div>
+    }
+
+
+</div>
+
+
+

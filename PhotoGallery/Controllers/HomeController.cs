@@ -17,6 +17,13 @@ namespace PhotoGallery.Controllers
             return View();
         }
 
+        public ActionResult Search(string searchString)
+        {
+            ArtRepository repo = new ArtRepository();
+            ViewBag.AllArts = repo.SearchArt(searchString);
+            return View();
+        }
+
         public ActionResult Detail(int id)
         {
             ArtRepository repo = new ArtRepository();

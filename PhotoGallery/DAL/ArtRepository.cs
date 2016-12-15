@@ -41,6 +41,11 @@ namespace PhotoGallery.DAL
             return Context.Artists.AsEnumerable();
         }
 
+        public List<Art> SearchArt(string searchString)
+        {
+            return Context.Arts.Where(a => a.ArtName.Contains(searchString)).ToList();
+        }
+
         public Art GetOneArt(int id)
         {
             return Context.Arts.FirstOrDefault(a => a.ArtId == id);

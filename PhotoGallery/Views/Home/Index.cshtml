@@ -9,6 +9,16 @@
     
         <h4 class="subtitle center-align regular-2 grey-text">Photo Gallery</h4>
         
+            @using (Html.BeginForm("Search", "Home"))
+            {
+                <div>
+                    <h6>
+                        <b>Search</b>: @Html.TextBox("searchString")
+                        <button class="btn btn-default" type="submit" value="searchString">Search</button>
+                    </h6>
+                </div>
+            }
+
             @foreach (var art in ViewBag.AllArts)
             {
                 <div class="col-sm-6 col-lg-4 col-md-4">
@@ -26,10 +36,10 @@
                     @using (Html.BeginForm("AddToCart", "Purchase"))
                     {
                      <a class="btn btn-default" href="/Home/Detail/@art.ArtId/">Detail</a>
-                     <button class="btn btn-default green lighten-1" type="submit" name="InputArtId" value="@art.ArtId" onclick="Materialize.toast('Added To Cart',4000)">Add To Cart</button>
+                     <button class="btn btn-default" type="submit" name="InputArtId" value="@art.ArtId" onclick="Materialize.toast('Added To Cart',4000)">Add To Cart</button>
                     }
                 </div>
-            }
+                }
                 
 
 </div>
