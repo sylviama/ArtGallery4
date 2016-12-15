@@ -210,9 +210,9 @@ namespace PhotoGallery.DAL
         //Update Art Info
         public void UpdateArt(Art art)
         {
-            Artist artist1 = Context.Artists.FirstOrDefault(a => a.ArtistFirstName == art.Fake);
-            art.Artist = artist1;
-
+            //Artist artist1 = Context.Artists.FirstOrDefault(a => a.ArtistFirstName == art.Fake);
+            //art.Artist = artist1;
+            
             Context.Arts.AddOrUpdate(art);
             Context.SaveChanges();
         }
