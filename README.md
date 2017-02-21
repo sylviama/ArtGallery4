@@ -1,4 +1,4 @@
-# ArtGallery3
+# ArtGallery
 Back End Capstone
 
 Description:
